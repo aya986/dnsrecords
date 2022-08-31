@@ -1,0 +1,47 @@
+{
+  "name": "por-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && node dist/bin/www",
+    "nmstart": "nodemon dist/bin/www",
+    "watch:server": "nodemon --exec babel-node src/bin/www",
+    "watch:build": "rimraf dist/ && babel --watch ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log",
+    "build": "rimraf dist/ && babel ./src --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dns": "^0.2.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "jade": "^1.11.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pdfkit": "^0.13.0",
+    "stream": "0.0.2",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.12.17",
+    "@babel/node": "^7.12.17",
+    "@babel/plugin-transform-runtime": "^7.13.2",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/runtime": "^7.13.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*"
+    ],
+    "delay": "3000"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@models": "./src/models",
+          "@gateways": "./src/gateways",
+          "@config": "./src/config",
+          "@mongoose": "./src/models/mongoose",
+          "@sequelize": "./src/models/sequelize",
+          "@routes": "./src/routes",
+          "@controllers": "./src/controllers",
+          "@classes": "./src/classes",
+          "@services": "./src/services",
+          "@helpers": "./src/helpers",
+          "@middlewares": "./src/middlewares",
+          "@validators": "./src/validators",
+          "@providers": "./src/providers",
+          "@lib": "./src/lib",
+          "@crons": "./src/crons",
+          "@seeders": "./src/seeders"
+        }
+      }
+    ]
+  ]
+}

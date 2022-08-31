@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "module": "commonjs",
+    "paths": {
+      "@mongoose/*": ["src/models/mongoose/*"],
+      "@sequelize/*": ["src/models/sequelize/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@config/*": ["src/config/*"],
+      "@classes/*": ["src/classes/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@validators/*": ["src/validators/*"],
+      "@providers/*": ["src/providers/*"],
+      "@seeders/*": ["src/seeders/*"],
+      "@lib/*": ["src/lib/*"],
+      "@crons/*": ["src/crons/*"],
+      "@gateways`/*": ["src/gateways/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist/"]
+}
