@@ -10,4 +10,9 @@ router.get(
   domainController.checkDomain.bind(domainController)
 );
 
+router.get(
+  "/sendEmail",
+  domainController.sendEmail.bind(domainController)
+);
+
 export default router;
