@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { getNumber } from "../utils";
 dotenv.config();
 
 let config = {
@@ -14,6 +15,13 @@ let config = {
   mailchimp: {
     api_key: process.env.MAILCHIMP_API_KEY,
     server_prefix: process.env.YOUR_SERVER_PREFIX
-  }
+  },
+  pg_main: {
+    user: process.env.PG_USER,
+    database: process.env.PG_DB,
+    password: process.env.PG_PASS,
+    host: process.env.PG_HOST,
+    port: getNumber(process.env.PG_PORT),
+  },
 }
 export default config;

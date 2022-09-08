@@ -4,19 +4,47 @@ import config from "@config/index";
 import Email from "./Email";
 
 class Mailchimp extends Email {
+  token = "";
+  constructor(token) {
+    super();
+    this.token = token;
+  }
+
   async send(to, subject, body) {
-    let mailchimpClient = mailchimpTx(config.mailchimp.api_key);
+    try {
+      let mailchimpClient = mailchimpTx(this.token);
 
-    const response = await mailchimpClient.users.ping();
-    console.log(response);
+      const response = await mailchimpClient.users.ping();
+      console.log(response);
 
-    const sendMail = await mailchimpClient.messages.send({ message: {} });
+      let message = {
+        subject: subject,
+        text: body,
+        from_email: "ayoob.khodadadi@gmail.com",
+        from_name: "ayoob.khodadadi",
+        to: [
+          {
+            email: to,
+          },
+        ],
+      };
 
-    console.log(sendMail);
-    if (!sendMail) {
-      throw new Error("Error on send mail by Mailchimp");
+      const sendResults = await mailchimpClient.messages.send({
+        message: message,
+      });
+      let sendResult = sendResults.shift();
+
+      if (sendResult?.status == "rejected") {
+        console.log(
+          `mail was rejected because ${sendResult?.reject_reason}`,
+          sendResult
+        );
+      }
+
+      return sendResult?.status == "sent";
+    } catch (error) {
+      return false;
     }
-    return true;
   }
 }
 
