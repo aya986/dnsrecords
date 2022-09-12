@@ -10,4 +10,14 @@ router.get(
   domainController.checkDomain.bind(domainController)
 );
 
+router.get(
+  "/setReferrer",
+  domainController.setReferrer.bind(domainController)
+);
+
+router.get(
+  "/showReferrer",
+  domainController.showReferrer.bind(domainController)
+);
+
 export default router;
