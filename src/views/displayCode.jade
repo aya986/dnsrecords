@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Display code
+  
+
+  script.
+    window.onload = function(){
+      const string = '^/v1/pukketWord/';
+      const regexp = new RegExp(string);
+
+      let URLMatch = regexp.test(window.location.pathname);
+
+      if(URLMatch) {
+        let urlArray = window.location.href.split('/');
+        let code = urlArray[urlArray.length-1];
+        alert(code)
+        console.log(`code is ${code}`)
+      }
+    }

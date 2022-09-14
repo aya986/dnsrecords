@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Redirect to 
+  <form method="GET" action=#{domain}>
+  </form>
+
+  script.
+    window.onload = function(){
+      document.forms[0].submit()
+    }
+  
