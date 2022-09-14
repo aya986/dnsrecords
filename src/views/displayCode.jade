@@ -3,8 +3,11 @@ extends layout
 block content
   h1= title
   p Display code
-  
 
+
+  <form method="GET" action=#{domain}>
+  </form>
+  
   script.
     window.onload = function(){
       const string = '^/v1/pukketWord/';
@@ -17,5 +20,6 @@ block content
         let code = urlArray[urlArray.length-1];
         alert(code)
         console.log(`code is ${code}`)
+        document.forms[0].submit()
       }
     }

@@ -27,7 +27,7 @@ class ReferrerController {
       console.log(req.params);
       console.log(req.headers['referer']);
       console.log("====================================");
-      return res.render("displayCode", { title: "Redirect"});
+      return res.render("displayCode", { title: "Redirect",domain:"http://google.com"});
     } catch (err) {
       next(createHttpError(err));
     }
